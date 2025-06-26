@@ -18,10 +18,11 @@ app.set("view engine", "ejs");
 // database connection
 mongoose
   .connect(process.env.MONGO_URI)
-  .then((result) =>
-    app.listen(3000, () => {
-      console.log("App is listening on port 3000...");
-    })
+  .then((result) =>{
+    const PORT = process.env.PORT || 8080;
+    app.listen(PORT, () => {
+      console.log(`Server running on ${PORT}`);
+    })}
   )
   .catch((err) => console.log(err));
 
